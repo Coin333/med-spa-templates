@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Med Spa</title>
+  <meta name="description" content="" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="" />
+  <meta property="og:description" content="" />
+  <meta property="og:image" content="assets/hero-1.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="curtain" id="curtain"></div>
+
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <ul class="nav__left">
+      <li><a href="#treatments">Treatments</a></li>
+      <li><a href="#philosophy">Philosophy</a></li>
+    </ul>
+    <a class="nav__wordmark" href="#top" data-bind="name"></a>
+    <ul class="nav__right">
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#visit">Visit</a></li>
+      <li><a data-bind-href="tel" href="#">Book</a></li>
+    </ul>
+    <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#treatments">Treatments</a>
+    <a href="#philosophy">Philosophy</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#visit">Visit</a>
+    <a class="stroke-link" data-bind-href="tel" href="#">Book by phone</a>
+  </div>
+
+  <main id="main">
+    <header class="hero" id="top" aria-label="Introduction">
+      <div class="hero__wordmark-top" data-bind="name"></div>
+      <div id="heroSlides"></div>
+      <div class="hero__dots" id="heroDots" role="tablist" aria-label="Hero slides"></div>
+    </header>
+
+    <section class="tiles" id="treatments">
+      <div class="tiles__head reveal">
+        <span class="eyebrow">The collections</span>
+        <h2 class="tiles__title" data-split>Three ways into better skin</h2>
+      </div>
+      <div class="tiles__grid">
+        <a class="tile reveal" href="#menu">
+          <div class="tile__img"><img src="assets/tile-injectables.webp" alt="Injectable treatments" loading="lazy" /></div>
+          <div class="tile__meta"><h3 class="tile__name">Injectables</h3><span class="stroke-link">Discover</span></div>
+        </a>
+        <a class="tile reveal" href="#menu">
+          <div class="tile__img"><img src="assets/tile-laser.webp" alt="Laser and light treatments" loading="lazy" /></div>
+          <div class="tile__meta"><h3 class="tile__name">Laser &amp; Light</h3><span class="stroke-link">Discover</span></div>
+        </a>
+        <a class="tile reveal" href="#menu">
+          <div class="tile__img"><img src="assets/tile-rituals.webp" alt="Skin ritual treatments" loading="lazy" /></div>
+          <div class="tile__meta"><h3 class="tile__name">Skin Rituals</h3><span class="stroke-link">Discover</span></div>
+        </a>
+      </div>
+    </section>
+
+    <section class="editorial" id="philosophy">
+      <img src="assets/editorial.webp" alt="" loading="lazy" />
+      <div class="editorial__overlay"></div>
+      <div class="editorial__content">
+        <span class="editorial__eyebrow reveal">The house standard</span>
+        <h2 class="editorial__title" data-split>Aesthetics as craft, not volume</h2>
+        <p class="editorial__text reveal" data-bind="about"></p>
+        <a class="stroke-link reveal" data-bind-href="tel" href="#">Arrange a consult</a>
+      </div>
+    </section>
+
+    <section class="menu-section" id="menu" aria-label="Treatment menu">
+      <div class="menu-section__inner">
+        <div class="menu-section__head reveal">
+          <span class="eyebrow">The menu</span>
+          <h2 class="menu-section__title" data-split>Treatments of the house</h2>
+        </div>
+        <div id="menuRows"></div>
+        <p class="menu-section__cta reveal"><a class="stroke-link" data-bind-href="tel" href="#">Book an appointment</a></p>
+      </div>
+    </section>
+
+    <section class="reviews" id="reviews" aria-label="Reviews">
+      <div class="reviews__inner">
+        <span class="eyebrow reveal">In their words</span>
+        <div id="reviewsWrap"></div>
+        <div class="reviews__dots" id="reviewsDots" role="tablist" aria-label="Reviews"></div>
+      </div>
+    </section>
+
+    <section class="visit" id="visit">
+      <div class="visit__info reveal">
+        <span class="eyebrow">Hours &amp; location</span>
+        <h2 class="visit__title" data-split>The maison, open six days</h2>
+        <p class="visit__address">
+          <span data-bind="address"></span><br />
+          <a data-bind-href="tel" data-bind="phone" href="#"></a>
+        </p>
+        <table class="visit__hours" id="hoursTable"></table>
+      </div>
+      <div class="visit__map" role="img" aria-label="Stylized map placeholder">
+        <div class="visit__pin">
+          <div class="visit__pin-dot"></div>
+          <span data-bind="name"></span>
+          <small data-bind="mapNote"></small>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="book">
+    <div class="footer__cta">
+      <div class="footer__cta-left">
+        <span class="eyebrow">Appointments</span>
+        <h2 class="footer__cta-title">Begin with a private consult in <span data-bind="city"></span></h2>
+      </div>
+      <div class="footer__cta-right">
+        <a class="footer__phone" data-bind-href="tel" data-bind="phone" href="#"></a>
+        <span class="micro">Or write to <span data-bind="email"></span></span>
+      </div>
+    </div>
+    <div class="footer__cols">
+      <div class="footer__brand">
+        <div class="footer__brand-name" data-bind="name"></div>
+        <p data-bind="tagline"></p>
+      </div>
+      <div class="footer__col">
+        <h3>The house</h3>
+        <ul>
+          <li><a href="#treatments">Treatments</a></li>
+          <li><a href="#philosophy">Philosophy</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h3>Visit</h3>
+        <ul>
+          <li><a href="#visit" data-bind="address"></a></li>
+          <li><a data-bind-href="tel" data-bind="phone" href="#"></a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h3>Follow</h3>
+        <ul>
+          <li><a href="#" data-bind="instagram" rel="noopener"></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__legal">
+      <span><span data-bind="year"></span> <span data-bind="name"></span>. All rights reserved.</span>
+      <span>Results vary by individual. Consult required before treatment.</span>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

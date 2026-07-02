@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Med Spa</title>
+  <meta name="description" content="" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="" />
+  <meta property="og:description" content="" />
+  <meta property="og:image" content="assets/hero.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600&family=Marcellus&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <a class="nav__logo" href="#top" data-bind="name"></a>
+    <ul class="nav__links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a class="pill pill--solid" data-bind-href="tel" href="#">Book now</a>
+    <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services">Services</a>
+    <a href="#experience">Experience</a>
+    <a href="#results">Results</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#visit">Visit</a>
+    <a class="pill" data-bind-href="tel" href="#">Book now</a>
+  </div>
+
+  <main id="main">
+    <header class="hero" id="top">
+      <div class="hero__media"><img src="assets/hero.webp" alt="" fetchpriority="high" data-bind-alt="hero" id="heroImg" /></div>
+      <div class="hero__scrim"></div>
+      <div class="blinds" id="blinds" aria-hidden="true"></div>
+      <div class="hero__content">
+        <span class="hero__eyebrow" data-bind="tagline"></span>
+        <h1 class="hero__title" data-split>A med spa in <span data-bind-inline="city"></span></h1>
+        <a class="pill pill--light" data-bind-href="tel" href="#">Book your experience</a>
+      </div>
+      <span class="hero__scroll-cue">Scroll</span>
+    </header>
+
+    <div class="arch-wrap">
+      <section class="arch-panel" id="aboutPanel">
+        <div class="arch-panel__inner">
+          <span class="eyebrow reveal">Beauty is a way of life</span>
+          <h2 class="arch-panel__title" data-split>Calm, coastal, medical-grade</h2>
+          <p class="arch-panel__text reveal" data-bind="about"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="services" id="services">
+      <div class="services__head reveal">
+        <div>
+          <span class="eyebrow">The services</span>
+          <h2 class="services__title">A sensory experience, thoughtfully composed</h2>
+          <p class="services__sub">From fingertips to a sense of calm.</p>
+        </div>
+        <div class="services__nav">
+          <button class="arrow-btn" id="svcPrev" aria-label="Previous services">&larr;</button>
+          <button class="arrow-btn" id="svcNext" aria-label="Next services">&rarr;</button>
+        </div>
+      </div>
+      <div class="services__track" id="svcTrack"></div>
+    </section>
+
+    <section class="drift" id="experience" aria-label="The experience">
+      <div class="drift__stage">
+        <span class="drift__glyph" id="driftGlyph" aria-hidden="true">C</span>
+        <img class="drift__img drift__img--1" id="drift1" src="assets/service-hydrafacial.webp" alt="" loading="lazy" />
+        <img class="drift__img drift__img--2" id="drift2" src="assets/service-laser.webp" alt="" loading="lazy" />
+        <img class="drift__img drift__img--3" id="drift3" src="assets/service-botox.webp" alt="" loading="lazy" />
+        <img class="drift__img drift__img--4" id="drift4" src="assets/service-peel.webp" alt="" loading="lazy" />
+        <div class="drift__text">
+          <span class="eyebrow">The experience</span>
+          <h2 class="drift__title" data-split>Every detail, a pleasure</h2>
+          <p class="drift__sub reveal">Warm towels, ocean light, unhurried appointments, and results you can see in the mirror, not on a brochure.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="escape">
+      <div class="escape__text reveal">
+        <span class="eyebrow">Your escape</span>
+        <h2 class="escape__title" data-split>Experience your coastal reset</h2>
+        <p class="escape__body" id="escapeBody"></p>
+        <a class="pill" data-bind-href="tel" href="#">Book your experience</a>
+      </div>
+      <div class="escape__media reveal">
+        <img src="assets/escape.webp" alt="Treatment room with arched windows and ocean light" loading="lazy" id="escapeImg" />
+      </div>
+    </section>
+
+    <section class="gallery" id="results">
+      <div class="gallery__head reveal">
+        <span class="eyebrow">Glow with us</span>
+        <h2 class="gallery__title" data-split>Results from the studio</h2>
+      </div>
+      <div class="gallery__grid" id="galleryGrid"></div>
+    </section>
+
+    <section class="reviews" id="reviews">
+      <div class="reviews__head reveal">
+        <span class="eyebrow">In their words</span>
+        <h2 class="reviews__title" data-split>Five-star reviews across the South Bay</h2>
+      </div>
+      <div class="reviews__grid" id="reviewsGrid"></div>
+    </section>
+
+    <section class="visit" id="visit">
+      <div class="visit__info reveal">
+        <span class="eyebrow">Hours &amp; location</span>
+        <h2 class="visit__title">Get in touch with us</h2>
+        <p class="visit__address">
+          <span data-bind="address"></span><br />
+          <a data-bind-href="tel" data-bind="phone" href="#"></a>
+        </p>
+        <table class="visit__hours" id="hoursTable"></table>
+      </div>
+      <div class="visit__map" role="img" aria-label="Stylized map placeholder">
+        <div class="visit__pin">
+          <div class="visit__pin-dot"></div>
+          <span data-bind="name"></span>
+          <small data-bind="mapNote"></small>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="book">
+    <div class="footer__book">
+      <span class="eyebrow">Ready when you are</span>
+      <h2 class="footer__book-title">Your glow is one call away in <span data-bind-inline="city"></span></h2>
+      <a class="footer__phone" data-bind-href="tel" data-bind="phone" href="#"></a>
+    </div>
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__brand-name" data-bind="name"></div>
+        <p data-bind="tagline"></p>
+      </div>
+      <div class="footer__col">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h3>Visit</h3>
+        <ul>
+          <li><a href="#visit" data-bind="address"></a></li>
+          <li><a data-bind-href="tel" data-bind="phone" href="#"></a></li>
+          <li><a data-bind-href="email" data-bind="email" href="#"></a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h3>Follow</h3>
+        <ul>
+          <li><a href="#" data-bind="instagram" rel="noopener"></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__legal">
+      <span><span data-bind="year"></span> <span data-bind="name"></span>. All rights reserved.</span>
+      <span>Results vary by individual. Consult required before treatment.</span>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
