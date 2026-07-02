@@ -142,10 +142,41 @@
   </main>
 
   <footer class="footer" id="book">
-    <div class="footer__book">
-      <span class="eyebrow">Ready when you are</span>
-      <h2 class="footer__book-title">Book your visit<br />in <span data-bind="city"></span></h2>
-      <a class="footer__phone" data-bind-href="tel" data-bind="phone" href="#"></a>
+    <div class="footer__contact">
+      <div class="footer__book">
+        <span class="eyebrow">Ready when you are</span>
+        <h2 class="footer__book-title">Book your visit<br />in <span data-bind="city"></span></h2>
+        <p class="footer__book-note">Call us directly, or send a note below and we'll confirm your consultation within one business day.</p>
+        <a class="footer__phone" data-bind-href="tel" data-bind="phone" href="#"></a>
+      </div>
+      <form class="footer__form" id="bookingForm" novalidate>
+        <div class="footer__field">
+          <label for="bf-name">Full name</label>
+          <input id="bf-name" name="name" type="text" autocomplete="name" required placeholder="Jane Doe" />
+        </div>
+        <div class="footer__field-row">
+          <div class="footer__field">
+            <label for="bf-email">Email</label>
+            <input id="bf-email" name="email" type="email" autocomplete="email" required placeholder="jane@email.com" />
+          </div>
+          <div class="footer__field">
+            <label for="bf-phone">Phone</label>
+            <input id="bf-phone" name="phone" type="tel" autocomplete="tel" placeholder="(626) 555-0148" />
+          </div>
+        </div>
+        <div class="footer__field">
+          <label for="bf-service">Service of interest</label>
+          <select id="bf-service" name="service" required>
+            <option value="" disabled selected>Select a treatment</option>
+          </select>
+        </div>
+        <div class="footer__field">
+          <label for="bf-message">Anything we should know?</label>
+          <textarea id="bf-message" name="message" rows="3" placeholder="Preferred days, questions, goals"></textarea>
+        </div>
+        <button type="submit" class="cta cta--light footer__submit">Request appointment</button>
+        <p class="footer__form-status" id="bookingStatus" role="status" aria-live="polite"></p>
+      </form>
     </div>
     <div class="footer__grid">
       <div class="footer__brand">

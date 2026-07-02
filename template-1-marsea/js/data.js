@@ -9,7 +9,8 @@
 // ============================================================
 const BUSINESS = {
   name: "Aurelle Aesthetics",
-  tagline: "Quiet, considered medical aesthetics. Results that read as rest, not work.",
+  tagline:
+    "Quiet, considered medical aesthetics. Results that read as rest, not work.",
   phone: "(626) 555-0148",
   address: "512 Mission Street, Pasadena, CA 91105",
   city: "Pasadena",
@@ -32,52 +33,60 @@ const BUSINESS = {
   services: [
     {
       title: "Botox & Dysport",
-      blurb: "Softens lines while your expressions stay yours. Dosed conservatively, reviewed at two weeks.",
+      blurb:
+        "Softens lines while your expressions stay yours. Dosed conservatively, reviewed at two weeks.",
       image: "assets/service-botox.webp",
     },
     {
       title: "Dermal Fillers",
-      blurb: "Structure and balance for lips, cheeks, and jawline. Reversible, placed slowly.",
+      blurb:
+        "Structure and balance for lips, cheeks, and jawline. Reversible, placed slowly.",
       image: "assets/service-filler.webp",
     },
     {
       title: "Laser Hair Removal",
-      blurb: "Medical-grade diode laser, safe for most skin tones. Six sessions, lasting results.",
+      blurb:
+        "Medical-grade diode laser, safe for most skin tones. Six sessions, lasting results.",
       image: "assets/service-laser.webp",
     },
     {
       title: "HydraFacial",
-      blurb: "Cleanse, extract, and hydrate in forty minutes. No downtime, immediate glow.",
+      blurb:
+        "Cleanse, extract, and hydrate in forty minutes. No downtime, immediate glow.",
       image: "assets/service-hydrafacial.webp",
     },
     {
       title: "Microneedling",
-      blurb: "Collagen induction for texture, scarring, and pores. Visible change by week four.",
+      blurb:
+        "Collagen induction for texture, scarring, and pores. Visible change by week four.",
       image: "assets/service-microneedling.webp",
     },
     {
       title: "Body Contouring",
-      blurb: "Non-surgical sculpting for stubborn areas diet does not reach. No anesthesia, no recovery days.",
+      blurb:
+        "Non-surgical sculpting for stubborn areas diet does not reach. No anesthesia, no recovery days.",
       image: "assets/service-contouring.webp",
     },
     {
       title: "Chemical Peels",
-      blurb: "Medical-depth peels matched to your skin, from lunchtime glow to full resurfacing.",
+      blurb:
+        "Medical-depth peels matched to your skin, from lunchtime glow to full resurfacing.",
       image: "assets/service-peel.webp",
     },
     {
       title: "IV Therapy",
-      blurb: "Hydration and vitamin drips administered by an RN. Twenty minutes in a quiet room.",
+      blurb:
+        "Hydration and vitamin drips administered by an RN. Twenty minutes in a quiet room.",
       image: "assets/service-iv.webp",
     },
   ],
   concerns: [
-    "Fine lines",
-    "Volume loss",
-    "Acne & texture",
-    "Sun damage",
-    "Unwanted hair",
-    "Dull skin",
+    { label: "Fine lines", image: "assets/service-botox.webp" },
+    { label: "Volume loss", image: "assets/service-filler.webp" },
+    { label: "Acne & texture", image: "assets/service-microneedling.webp" },
+    { label: "Sun damage", image: "assets/service-peel.webp" },
+    { label: "Unwanted hair", image: "assets/service-laser.webp" },
+    { label: "Dull skin", image: "assets/service-hydrafacial.webp" },
   ],
   approach: [
     {
@@ -101,17 +110,20 @@ const BUSINESS = {
   ],
   reviews: [
     {
-      quote: "Nobody could tell I had anything done. Three people asked if I changed my sleep.",
+      quote:
+        "Nobody could tell I had anything done. Three people asked if I changed my sleep.",
       author: "Placeholder Review A",
       stars: 5,
     },
     {
-      quote: "First med spa that talked me out of a treatment. I trust them completely now.",
+      quote:
+        "First med spa that talked me out of a treatment. I trust them completely now.",
       author: "Placeholder Review B",
       stars: 5,
     },
     {
-      quote: "The laser packages actually worked. Done in six visits, exactly as quoted.",
+      quote:
+        "The laser packages actually worked. Done in six visits, exactly as quoted.",
       author: "Placeholder Review C",
       stars: 5,
     },
