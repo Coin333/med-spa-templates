@@ -13,6 +13,7 @@
   --carbon-soft: #565550;
   --orchid: #8d76ad;
   --orchid-deep: #6c5591;
+  --orchid-light: #b4a3cc;
   --hairline: rgba(25, 25, 25, 0.14);
   --hairline-light: rgba(250, 250, 248, 0.25);
   --font-display: "Fraunces", Georgia, serif;
@@ -114,22 +115,6 @@ p {
   background: var(--carbon);
   color: var(--bone);
 }
-.btn--solid {
-  background: var(--carbon);
-  color: var(--bone);
-}
-.btn--solid:hover {
-  background: var(--orchid-deep);
-  border-color: var(--orchid-deep);
-}
-.btn--light {
-  border-color: var(--bone);
-  color: var(--bone);
-}
-.btn--light:hover {
-  background: var(--bone);
-  color: var(--carbon);
-}
 
 /* ---------- signature reveal (one language, every section) ---------- */
 /* text + blocks: a soft rise with a blur that clears — restrained, unhurried */
@@ -177,6 +162,23 @@ html.js .reveal-media.visible img {
   html.js .reveal-media img {
     transform: none;
     transition: none;
+  }
+  /* neutralize the one-shot load entrance animations too */
+  .hero__base img,
+  html.is-loaded .hero__base img {
+    transform: none;
+    transition: none;
+  }
+  .hero__type,
+  html.is-loaded .hero__type {
+    transition: none;
+  }
+  .nav,
+  html.is-loaded .nav {
+    transform: none;
+    transition:
+      background 0.4s var(--ease-reveal),
+      border-color 0.4s var(--ease-reveal);
   }
 }
 /* screen-reader-only (SEO heading kept out of the visual hero) */
@@ -287,6 +289,11 @@ html.is-loaded .nav {
 }
 .nav__call {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  margin: -8px;
   color: inherit;
   opacity: 0.75;
   transition: opacity 0.2s ease;
@@ -312,7 +319,11 @@ html.is-loaded .nav {
 .nav__burger {
   display: none;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 5px;
+  min-width: 44px;
+  min-height: 44px;
   background: none;
   border: none;
   padding: 8px;
@@ -337,12 +348,19 @@ html.is-loaded .nav {
   justify-content: center;
   padding: var(--pad-x);
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.35s var(--ease-reveal);
+  transition:
+    opacity 0.35s var(--ease-reveal),
+    visibility 0s linear 0.35s;
 }
 .mobile-menu.open {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
+  transition:
+    opacity 0.35s var(--ease-reveal),
+    visibility 0s;
 }
 .mobile-menu a {
   font-family: var(--font-display);
@@ -549,7 +567,7 @@ html:not(.js) .hero__type {
   right: clamp(2%, 6vw, 8%);
   bottom: clamp(1rem, 5vh, 3rem);
   width: clamp(280px, 34vw, 440px);
-  background: rgba(250, 250, 248, 0.55);
+  background: rgba(250, 250, 248, 0.82);
   backdrop-filter: blur(20px) saturate(1.1);
   -webkit-backdrop-filter: blur(20px) saturate(1.1);
   border: 1px solid var(--hairline);
@@ -581,11 +599,13 @@ html:not(.js) .hero__type {
   font-size: clamp(1.7rem, 3.2vw, 3rem);
   line-height: 1.02;
   letter-spacing: -0.01em;
+  text-wrap: balance;
   color: var(--carbon);
 }
 .lookbook__body {
-  font-size: 0.86rem;
+  font-size: 0.9rem;
   line-height: 1.6;
+  text-wrap: pretty;
   color: var(--carbon-soft);
 }
 .lookbook__cta {
@@ -713,14 +733,14 @@ html:not(.js) .hero__type {
   font-family: var(--font-mono);
   font-size: 0.7rem;
   letter-spacing: 0.12em;
-  color: var(--orchid);
+  color: var(--orchid-light);
 }
 .panel__name {
   font-size: clamp(1.4rem, 2.6vw, 2.1rem);
   color: var(--bone);
 }
 .panel__blurb {
-  font-size: 0.82rem;
+  font-size: 0.86rem;
   opacity: 0.85;
   max-width: 44ch;
 }
@@ -756,10 +776,12 @@ html:not(.js) .hero__type {
 }
 .numeral__title {
   font-size: clamp(1.7rem, 3.4vw, 2.8rem);
+  text-wrap: balance;
 }
 .numeral__body {
   color: var(--carbon-soft);
   font-size: 0.92rem;
+  text-wrap: pretty;
 }
 .numeral__list {
   list-style: none;
@@ -894,6 +916,7 @@ html:not(.js) .hero__type {
 }
 .visit__title {
   font-size: clamp(1.8rem, 3.4vw, 2.8rem);
+  text-wrap: balance;
 }
 .visit__address {
   color: var(--carbon-soft);
@@ -1002,7 +1025,7 @@ html:not(.js) .hero__type {
   padding: clamp(4rem, 9vw, 7rem) var(--pad-x);
 }
 .footer__glass {
-  background: rgba(25, 25, 25, 0.5);
+  background: rgba(25, 25, 25, 0.62);
   backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
   border: 1px solid var(--hairline-light);
@@ -1025,6 +1048,7 @@ html:not(.js) .hero__type {
 .footer__cta-title {
   font-size: clamp(2rem, 4.6vw, 3.8rem);
   max-width: 12em;
+  text-wrap: balance;
   color: var(--bone);
 }
 .footer__phone {
@@ -1061,7 +1085,7 @@ html:not(.js) .hero__type {
   text-transform: uppercase;
   letter-spacing: 0.16em;
   margin: 0 0 1rem;
-  color: var(--orchid);
+  color: var(--orchid-light);
 }
 .footer__col ul {
   list-style: none;
@@ -1087,7 +1111,7 @@ html:not(.js) .hero__type {
   font-size: 0.66rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  opacity: 0.65;
+  opacity: 0.8;
 }
 @media (max-width: 900px) {
   .footer__cols {

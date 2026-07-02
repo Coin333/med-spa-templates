@@ -199,7 +199,7 @@ function renderReviews() {
   document.getElementById("reviewsDots").innerHTML = B.reviews
     .map(
       (_, i) =>
-        `<button class="reviews__dot${i === 0 ? " active" : ""}" data-rdot="${i}" role="tab" aria-label="Review ${i + 1}"></button>`,
+        `<button class="reviews__dot${i === 0 ? " active" : ""}" data-rdot="${i}" role="tab" aria-selected="${i === 0 ? "true" : "false"}" aria-label="Review ${i + 1}"></button>`,
     )
     .join("");
 }
@@ -324,9 +324,11 @@ function initReviewsSlider() {
   const go = (n) => {
     items[idx].classList.remove("active");
     dots[idx].classList.remove("active");
+    dots[idx].setAttribute("aria-selected", "false");
     idx = (n + items.length) % items.length;
     items[idx].classList.add("active");
     dots[idx].classList.add("active");
+    dots[idx].setAttribute("aria-selected", "true");
   };
   const restart = () => {
     if (timer) clearInterval(timer);

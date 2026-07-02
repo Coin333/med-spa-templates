@@ -40,6 +40,10 @@ function bindText() {
   document.querySelectorAll("[data-bind-alt]").forEach((el) => {
     el.alt = "Portrait at " + B.name + ", a med spa in " + B.city;
   });
+  // turn the Instagram handle into a real profile link
+  document.querySelectorAll('a[data-bind="instagram"]').forEach((el) => {
+    el.href = "https://instagram.com/" + B.instagram.replace(/^@/, "");
+  });
 }
 
 function renderHead() {

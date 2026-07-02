@@ -31,48 +31,41 @@ const BUSINESS = {
   services: [
     {
       title: "Botox & Dysport",
-      blurb: "Precision dosing mapped to your muscle movement.",
       image: "assets/panel-injectables.webp",
     },
     {
       title: "Dermal Fillers",
-      blurb: "Structural balance, built one measured syringe at a time.",
       image: "assets/panel-injectables.webp",
     },
     {
       title: "Laser Hair Removal",
-      blurb: "Six-session diode protocols, logged and photographed.",
       image: "assets/panel-laser.webp",
     },
     {
       title: "Laser Resurfacing",
-      blurb: "Fractional light for texture, tone, and scarring.",
       image: "assets/panel-laser.webp",
     },
     {
       title: "HydraFacial",
-      blurb: "The forty-minute reset. Zero downtime, instant light.",
       image: "assets/panel-facials.webp",
     },
     {
       title: "Microneedling",
-      blurb: "Collagen induction with measured depth per zone.",
       image: "assets/panel-facials.webp",
     },
     {
       title: "Chemical Peels",
-      blurb: "Depth-matched peels from lunchtime to clinical.",
       image: "assets/panel-facials.webp",
     },
     {
       title: "Body Contouring",
-      blurb: "Non-surgical sculpting, tracked by scan.",
       image: "assets/panel-body.webp",
     },
   ],
   reviews: [
     {
-      quote: "They photograph everything and show you the delta. First place that treated my skin like data.",
+      quote:
+        "They photograph everything and show you the delta. First place that treated my skin like data.",
       author: "Placeholder Review A",
       stars: 5,
     },
@@ -82,7 +75,8 @@ const BUSINESS = {
       stars: 5,
     },
     {
-      quote: "The most considered laser work in the city. Zero burns, real results, honest pricing.",
+      quote:
+        "The most considered laser work in the city. Zero burns, real results, honest pricing.",
       author: "Placeholder Review C",
       stars: 5,
     },

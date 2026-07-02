@@ -78,9 +78,11 @@ h3 {
   margin: 0;
   line-height: 1.08;
   text-transform: uppercase;
+  text-wrap: balance;
 }
 p {
   margin: 0;
+  text-wrap: pretty;
 }
 
 .skip-link {
@@ -98,6 +100,13 @@ p {
 :focus-visible {
   outline: 2px solid var(--teal);
   outline-offset: 3px;
+}
+.reviews :focus-visible,
+.mobile-menu :focus-visible,
+.footer :focus-visible,
+.hero :focus-visible,
+.nav:not(.nav--scrolled) :focus-visible {
+  outline-color: var(--sand);
 }
 
 .eyebrow {
@@ -142,15 +151,6 @@ p {
   border-color: var(--white);
   color: var(--teal);
 }
-.pill--solid {
-  background: var(--teal);
-  border-color: var(--teal);
-  color: var(--white);
-}
-.pill--solid:hover {
-  background: var(--teal-deep);
-}
-
 /* reveal system */
 html.js .reveal {
   opacity: 0;
@@ -405,7 +405,10 @@ html.js .nav--ready {
 .nav__burger {
   display: none;
   flex-direction: column;
+  align-items: center;
   gap: 5px;
+  min-width: 44px;
+  min-height: 44px;
   background: none;
   border: none;
   padding: 8px;
@@ -433,11 +436,18 @@ html.js .nav--ready {
   padding: var(--pad-x);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.4s var(--ease-reveal);
+  visibility: hidden;
+  transition:
+    opacity 0.4s var(--ease-reveal),
+    visibility 0s linear 0.4s;
 }
 .mobile-menu.open {
   opacity: 1;
   pointer-events: auto;
+  visibility: visible;
+  transition:
+    opacity 0.4s var(--ease-reveal),
+    visibility 0s;
 }
 .mobile-menu a {
   font-family: var(--font-display);
@@ -1025,16 +1035,22 @@ html:not(.js) .blinds {
   gap: 0.6rem;
 }
 .reviews__dot {
+  position: relative;
   width: 8px;
   height: 8px;
   border-radius: 50%;
   border: none;
   padding: 0;
-  background: rgba(253, 251, 247, 0.28);
+  background: rgba(253, 251, 247, 0.45);
   cursor: pointer;
   transition:
     transform 0.3s var(--ease-reveal),
     background 0.3s ease;
+}
+.reviews__dot::after {
+  content: "";
+  position: absolute;
+  inset: -18px;
 }
 .reviews__dot.is-active {
   background: var(--sand);
@@ -1048,7 +1064,7 @@ html:not(.js) .blinds {
   font-size: 0.72rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(253, 251, 247, 0.6);
+  color: rgba(253, 251, 247, 0.72);
 }
 @media (prefers-reduced-motion: reduce) {
   .reviews__slide.is-active .reviews__quote,

@@ -14,6 +14,8 @@
   --gold: #a8964e;
   --gold-soft: #c8b978;
   --gold-wash: #efe9d6;
+  /* AA-safe gold for real text on the arch's white/gold-wash panel */
+  --gold-ink: #7a6a2c;
   --hairline: rgba(33, 29, 25, 0.16);
   --hairline-light: rgba(251, 250, 248, 0.28);
   --font-serif: "Cormorant Garamond", Georgia, serif;
@@ -149,17 +151,6 @@ html.js .reveal.visible {
     opacity 1s var(--ease-reveal),
     transform 1s var(--ease-reveal);
 }
-.line-mask {
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: bottom;
-  padding-bottom: 0.08em;
-  margin-bottom: -0.08em;
-}
-.line-inner {
-  display: inline-block;
-  will-change: transform;
-}
 html.js [data-split]:not(.split-done) {
   visibility: hidden;
 }
@@ -217,13 +208,6 @@ html:not(.js) .curtain {
   backdrop-filter: none;
   border-bottom-color: transparent;
   color: var(--white);
-}
-.nav.nav--hidden {
-  transform: translateY(-101%);
-  transition:
-    transform 0.4s var(--ease-conceal),
-    background 0.5s var(--ease-reveal),
-    color 0.5s var(--ease-reveal);
 }
 .nav__left,
 .nav__right {
@@ -516,7 +500,7 @@ html:not(.js) .curtain {
 .arch__eyebrow {
   font-size: 1.15rem;
   letter-spacing: 0.18em;
-  color: var(--gold);
+  color: var(--gold-ink);
   will-change: transform, opacity;
 }
 .arch__glyph {
@@ -652,6 +636,7 @@ html.js .img-reveal.shown img {
 }
 .tiles__title {
   font-size: clamp(1.9rem, 3.4vw, 2.9rem);
+  text-wrap: balance;
 }
 .tiles__grid {
   display: grid;
@@ -743,6 +728,7 @@ html.js .img-reveal.shown img {
 .editorial__title {
   font-size: clamp(2rem, 4.2vw, 3.4rem);
   font-weight: 300;
+  text-wrap: balance;
 }
 .editorial__text {
   font-size: 1.15rem;
@@ -772,6 +758,7 @@ html.js .img-reveal.shown img {
 }
 .menu-section__title {
   font-size: clamp(1.9rem, 3.4vw, 2.9rem);
+  text-wrap: balance;
 }
 .menu-row {
   display: flex;
@@ -825,6 +812,9 @@ html.js .img-reveal.shown img {
   .menu-row__blurb {
     text-align: left;
   }
+  .menu-row__name {
+    white-space: normal;
+  }
 }
 
 /* ---------- reviews ---------- */
@@ -872,21 +862,33 @@ html.js .img-reveal.shown img {
 }
 .reviews__dots {
   display: flex;
-  gap: 0.7rem;
+  gap: 0.3rem;
   justify-content: center;
   margin-top: 2.4rem;
 }
 .reviews__dot {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.reviews__dot::before {
+  content: "";
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: transparent;
   border: 1px solid var(--espresso-soft);
-  padding: 0;
-  cursor: pointer;
-  transition: background 0.3s ease;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
 }
-.reviews__dot.active {
+.reviews__dot.active::before {
   background: var(--bordeaux);
   border-color: var(--bordeaux);
 }
@@ -907,6 +909,7 @@ html.js .img-reveal.shown img {
 }
 .visit__title {
   font-size: clamp(1.9rem, 3vw, 2.6rem);
+  text-wrap: balance;
 }
 .visit__address {
   color: var(--espresso-soft);
@@ -1008,6 +1011,7 @@ html.js .img-reveal.shown img {
 .footer__cta-title {
   font-size: clamp(1.9rem, 3.6vw, 3rem);
   font-weight: 300;
+  text-wrap: balance;
 }
 .footer__cta-left .eyebrow {
   color: rgba(251, 250, 248, 0.75);

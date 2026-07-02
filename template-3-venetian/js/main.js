@@ -173,7 +173,7 @@ function renderReviews() {
   document.getElementById("reviewSpotlight").innerHTML = B.reviews
     .map(
       (r, i) => `
-    <div class="reviews__slide${i === 0 ? " is-active" : ""}" role="tabpanel" aria-roledescription="review" aria-label="Review ${i + 1} of ${total}"${i === 0 ? "" : ' aria-hidden="true"'}>
+    <div class="reviews__slide${i === 0 ? " is-active" : ""}" id="review-panel-${i}" role="tabpanel" aria-roledescription="review" aria-label="Review ${i + 1} of ${total}" aria-labelledby="review-tab-${i}"${i === 0 ? "" : ' aria-hidden="true"'}>
       <div class="reviews__stars" aria-label="${r.stars} out of 5 stars">${"★".repeat(r.stars)}</div>
       <p class="reviews__quote">${r.quote}</p>
       <div class="reviews__author">${r.author}</div>
@@ -183,7 +183,7 @@ function renderReviews() {
   document.getElementById("revDots").innerHTML = B.reviews
     .map(
       (_, i) =>
-        `<button class="reviews__dot${i === 0 ? " is-active" : ""}" role="tab" aria-label="Show review ${i + 1}" aria-selected="${i === 0 ? "true" : "false"}"></button>`,
+        `<button class="reviews__dot${i === 0 ? " is-active" : ""}" id="review-tab-${i}" role="tab" aria-controls="review-panel-${i}" aria-label="Show review ${i + 1}" aria-selected="${i === 0 ? "true" : "false"}"></button>`,
     )
     .join("");
 }

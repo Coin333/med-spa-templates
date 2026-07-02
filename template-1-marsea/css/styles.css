@@ -85,9 +85,11 @@ h3 {
   font-family: var(--font-display);
   font-weight: 400;
   margin: 0;
+  text-wrap: balance;
 }
 p {
   margin: 0;
+  text-wrap: pretty;
 }
 
 .skip-link {
@@ -314,7 +316,11 @@ html.js .reveal.visible {
 .nav__burger {
   display: none;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 5px;
+  min-width: 44px;
+  min-height: 44px;
   background: none;
   border: none;
   padding: 8px;
@@ -1049,7 +1055,7 @@ html:not(.js) .hero__curtain {
   color: var(--porcelain);
   background: transparent;
   border: none;
-  border-bottom: 1px solid var(--hairline-light);
+  border-bottom: 1px solid rgba(247, 242, 234, 0.5);
   border-radius: 0;
   padding: 0.55rem 0;
   width: 100%;
@@ -1057,12 +1063,18 @@ html:not(.js) .hero__curtain {
 }
 .footer__form input::placeholder,
 .footer__form textarea::placeholder {
-  color: rgba(247, 242, 234, 0.42);
+  color: rgba(247, 242, 234, 0.72);
 }
 .footer__form input:focus,
 .footer__form select:focus,
 .footer__form textarea:focus {
-  outline: none;
+  border-bottom-color: var(--blush);
+}
+.footer__form input:focus-visible,
+.footer__form select:focus-visible,
+.footer__form textarea:focus-visible {
+  outline: 2px solid var(--blush);
+  outline-offset: 3px;
   border-bottom-color: var(--blush);
 }
 .footer__form select {
@@ -1150,6 +1162,11 @@ html:not(.js) .hero__curtain {
     position: relative;
   }
   .visit {
+    grid-template-columns: 1fr;
+  }
+  /* stack the book/form so the fixed two-column grid can't force
+     horizontal overflow on phones and small tablets */
+  .footer__contact {
     grid-template-columns: 1fr;
   }
   .footer__grid {
