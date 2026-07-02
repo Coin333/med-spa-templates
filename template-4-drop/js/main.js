@@ -187,7 +187,6 @@ function renderReviews() {
     .map(
       (r, i) => `
     <blockquote class="review reveal" style="--i:${i}">
-      <span class="review__idx">0${i + 1}</span>
       <p class="review__quote">"${r.quote}"</p>
       <div class="review__meta">
         <span class="review__stars" aria-label="${r.stars} out of 5 stars">${"★".repeat(r.stars)}</span>
@@ -316,13 +315,16 @@ function initScrub() {
     const pr = panels.getBoundingClientRect();
     const pTotal = pr.height - innerHeight;
     const pp = Math.min(1, Math.max(0, -pr.top / pTotal));
+    // ease the horizontal travel in and out so entering/leaving the
+    // sideways scroll glides instead of snapping to a linear track
+    const pe = pp < 0.5 ? 2 * pp * pp : 1 - Math.pow(-2 * pp + 2, 2) / 2;
     const maxX = Math.max(
       0,
       row.scrollWidth -
         innerWidth +
         parseFloat(getComputedStyle(document.documentElement).fontSize) * 4,
     );
-    row.style.transform = "translateX(" + (-pp * maxX).toFixed(1) + "px)";
+    row.style.transform = "translateX(" + (-pe * maxX).toFixed(1) + "px)";
   };
   const onScroll = () => {
     if (!ticking) {
@@ -334,17 +336,6 @@ function initScrub() {
   addEventListener("resize", onScroll, { passive: true });
   if (window.lenis) window.lenis.on("scroll", onScroll);
   update();
-
-  // custom cursor over the panels section
-  const dot = document.getElementById("cursorDot");
-  if (window.matchMedia("(pointer: fine)").matches) {
-    panels.addEventListener("mousemove", (e) => {
-      dot.style.left = e.clientX + "px";
-      dot.style.top = e.clientY + "px";
-      dot.classList.add("on");
-    });
-    panels.addEventListener("mouseleave", () => dot.classList.remove("on"));
-  }
 }
 
 function disableScrubFallback() {

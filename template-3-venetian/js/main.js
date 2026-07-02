@@ -235,22 +235,18 @@ function initServicesCarousel() {
   const track = document.getElementById("svcTrack");
   const step = () =>
     (track.querySelector(".service-card")?.offsetWidth || 320) + 22;
-  document
-    .getElementById("svcPrev")
-    .addEventListener("click", () =>
-      track.scrollBy({
-        left: -step(),
-        behavior: reduceMotion ? "auto" : "smooth",
-      }),
-    );
-  document
-    .getElementById("svcNext")
-    .addEventListener("click", () =>
-      track.scrollBy({
-        left: step(),
-        behavior: reduceMotion ? "auto" : "smooth",
-      }),
-    );
+  document.getElementById("svcPrev").addEventListener("click", () =>
+    track.scrollBy({
+      left: -step(),
+      behavior: reduceMotion ? "auto" : "smooth",
+    }),
+  );
+  document.getElementById("svcNext").addEventListener("click", () =>
+    track.scrollBy({
+      left: step(),
+      behavior: reduceMotion ? "auto" : "smooth",
+    }),
+  );
 }
 
 /* ---------------- reviews spotlight ---------------- */
@@ -319,86 +315,30 @@ function initReviews() {
   start();
 }
 
-/* ---------------- services (menu) smooth custom cursor ---------------- */
+/* ---------------- services (menu) drag-to-scroll ---------------- */
 
-function initServicesCursor() {
-  const section = document.querySelector(".services");
+function initServicesDrag() {
   const track = document.getElementById("svcTrack");
-  if (!section || !track || !window.matchMedia("(pointer: fine)").matches)
-    return;
+  if (!track || !window.matchMedia("(pointer: fine)").matches) return;
 
-  const cursor = document.createElement("div");
-  cursor.className = "svc-cursor";
-  cursor.innerHTML = "<span>Drag</span>";
-  section.appendChild(cursor);
-
-  let tx = 0,
-    ty = 0,
-    cx = 0,
-    cy = 0,
-    s = 0.85,
-    ts = 0.85,
-    raf = 0,
-    inside = false;
-  const render = () => {
-    cx += (tx - cx) * 0.18;
-    cy += (ty - cy) * 0.18;
-    s += (ts - s) * 0.18;
-    cursor.style.transform = `translate(${cx.toFixed(1)}px, ${cy.toFixed(1)}px) translate(-50%, -50%) scale(${s.toFixed(3)})`;
-    if (
-      inside ||
-      Math.abs(tx - cx) > 0.3 ||
-      Math.abs(ty - cy) > 0.3 ||
-      Math.abs(ts - s) > 0.004
-    ) {
-      raf = requestAnimationFrame(render);
-    } else {
-      raf = 0;
-    }
-  };
-  const kick = () => {
-    if (!raf) raf = requestAnimationFrame(render);
-  };
-  const setTarget = (e) => {
-    const r = section.getBoundingClientRect();
-    tx = e.clientX - r.left;
-    ty = e.clientY - r.top;
-  };
-
-  section.addEventListener("pointerenter", (e) => {
-    inside = true;
-    section.classList.add("cursor-active");
-    cursor.classList.add("is-visible");
-    setTarget(e);
-    cx = tx;
-    cy = ty;
-    kick();
-  });
-  section.addEventListener("pointerleave", () => {
-    inside = false;
-    section.classList.remove("cursor-active");
-    cursor.classList.remove("is-visible");
-  });
-  section.addEventListener("pointermove", (e) => {
-    setTarget(e);
-    ts = e.target.closest(".service-card") ? 1.15 : 0.85;
-    kick();
-  });
-
-  // drag-to-scroll for the carousel, pairs with the "Drag" cursor
+  // click-and-drag to scan the carousel horizontally (native cursor kept)
   let down = false,
+    moved = false,
     startX = 0,
     startScroll = 0;
   track.addEventListener("pointerdown", (e) => {
     if (e.button && e.button !== 0) return;
     down = true;
+    moved = false;
     startX = e.clientX;
     startScroll = track.scrollLeft;
     track.classList.add("is-dragging");
   });
   addEventListener("pointermove", (e) => {
     if (!down) return;
-    track.scrollLeft = startScroll - (e.clientX - startX);
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) > 3) moved = true;
+    track.scrollLeft = startScroll - dx;
   });
   const endDrag = () => {
     if (!down) return;
@@ -407,6 +347,17 @@ function initServicesCursor() {
   };
   addEventListener("pointerup", endDrag);
   addEventListener("pointercancel", endDrag);
+  // suppress the click that follows a drag so cards don't feel jumpy
+  track.addEventListener(
+    "click",
+    (e) => {
+      if (moved) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    },
+    true,
+  );
 }
 
 /* ---------------- line splitting for the text load-in ---------------- */
@@ -754,7 +705,7 @@ renderHours();
 initNav();
 initServicesCarousel();
 initReviews();
-initServicesCursor();
+initServicesDrag();
 initSmoothScroll();
 initEntrances();
 initMotion();

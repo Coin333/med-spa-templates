@@ -561,6 +561,20 @@ html:not(.js) .hero__type {
 .lookbook__index {
   color: var(--orchid-deep);
 }
+.lookbook__panel-photo {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border: 1px solid var(--hairline);
+}
+.lookbook__panel-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s var(--ease-reveal);
+}
+.lookbook__panel:hover .lookbook__panel-photo img {
+  transform: scale(1.04);
+}
 .lookbook__statement {
   font-family: var(--font-display);
   font-weight: 500;
@@ -636,11 +650,24 @@ html:not(.js) .hero__type {
   left: 0;
   right: 0;
   z-index: 3;
-  padding: 5.2rem var(--pad-x) 1.6rem;
+  padding: 5.2rem var(--pad-x) 2.4rem;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   gap: 1rem;
+  /* scrim so the bone title stays legible over bright panel photos
+     that scroll up behind it */
+  background: linear-gradient(
+    to bottom,
+    rgba(25, 25, 25, 0.9) 0%,
+    rgba(25, 25, 25, 0.72) 45%,
+    rgba(25, 25, 25, 0) 100%
+  );
+  pointer-events: none;
+}
+.panels__head .label,
+.panels__title {
+  text-shadow: 0 1px 24px rgba(25, 25, 25, 0.55);
 }
 .panels__head .label {
   color: rgba(250, 250, 248, 0.7);
@@ -701,35 +728,6 @@ html:not(.js) .hero__type {
   .panel {
     width: 82vw;
     height: 66vh;
-  }
-}
-
-/* custom cursor over panels */
-.cursor-dot {
-  position: fixed;
-  z-index: 200;
-  pointer-events: none;
-  width: 84px;
-  height: 84px;
-  border-radius: 50%;
-  background: var(--bone);
-  color: var(--carbon);
-  display: grid;
-  place-items: center;
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  transform: translate(-50%, -50%) scale(0);
-  transition: transform 0.25s var(--ease-reveal);
-  will-change: transform;
-}
-.cursor-dot.on {
-  transform: translate(-50%, -50%) scale(1);
-}
-@media (pointer: coarse) {
-  .cursor-dot {
-    display: none;
   }
 }
 
@@ -838,17 +836,11 @@ html:not(.js) .hero__type {
 }
 .review {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 1fr auto;
   gap: 2rem;
   align-items: baseline;
   padding: 2.4rem var(--pad-x);
   border-bottom: 1px solid var(--hairline);
-}
-.review__idx {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--orchid-deep);
-  letter-spacing: 0.12em;
 }
 .review__quote {
   font-family: var(--font-display);

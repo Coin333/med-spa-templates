@@ -403,11 +403,13 @@ function initStageScroll(M) {
     eyebrow.style.transform = `translateY(${(1 - eP) * 26}px)`;
     glyph.style.opacity = `${mapRange(p, 0.56, 0.7, 0, 1)}`;
     // 6. arch-topped image rises + scales in
-    const fP = mapRange(p, 0.6, 0.96, 0, 1);
+    const fP = mapRange(p, 0.6, 0.88, 0, 1);
     figure.style.opacity = `${mapRange(p, 0.6, 0.72, 0, 1)}`;
     figure.style.transform = `translateY(${(1 - fP) * 60}%) scale(${0.92 + fP * 0.08})`;
-    // 7. statement rises in near the very end
-    statement.style.transform = `translateY(${mapRange(p, 0.82, 1, 92, 6)}%)`;
+    // 7. statement rises in, finishing before the pin releases so the
+    //    fully composed arch holds a settled beat instead of still moving
+    //    as the stage un-pins (that mid-motion handoff read as a jolt)
+    statement.style.transform = `translateY(${mapRange(p, 0.78, 0.9, 92, 6)}%)`;
   };
 
   apply(0);

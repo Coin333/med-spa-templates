@@ -780,24 +780,33 @@ html.js .img-reveal.shown img {
   gap: 2rem;
   padding: 1.4rem 0.2rem;
   border-bottom: 1px solid var(--hairline);
-  transition: padding-left 0.35s var(--ease-reveal);
 }
 .menu-row:first-of-type {
   border-top: 1px solid var(--hairline);
-}
-.menu-row:hover {
-  padding-left: 1rem;
 }
 .menu-row__name {
   font-size: clamp(1.35rem, 2.4vw, 1.8rem);
   font-weight: 400;
   white-space: nowrap;
+  /* GPU transform + color, no padding reflow, so the indent glides */
+  transition:
+    transform 0.5s var(--ease-reveal),
+    color 0.4s var(--ease-reveal);
+  will-change: transform;
+}
+.menu-row:hover .menu-row__name {
+  transform: translateX(0.9rem);
+  color: var(--bordeaux);
 }
 .menu-row__blurb {
   color: var(--espresso-soft);
   font-size: 1.02rem;
   text-align: right;
   max-width: 46ch;
+  transition: transform 0.5s var(--ease-reveal);
+}
+.menu-row:hover .menu-row__blurb {
+  transform: translateX(-0.4rem);
 }
 .menu-section__cta {
   text-align: center;

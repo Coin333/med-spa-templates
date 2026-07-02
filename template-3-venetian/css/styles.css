@@ -654,10 +654,15 @@ html:not(.js) .blinds {
   display: flex;
   gap: 1.4rem;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
+  scroll-snap-type: x proximity;
+  scroll-behavior: smooth;
   padding: 0 var(--pad-x);
   scroll-padding: 0 var(--pad-x);
   scrollbar-width: none;
+  cursor: grab;
+}
+.services__track.is-dragging {
+  cursor: grabbing;
 }
 .services__track::-webkit-scrollbar {
   display: none;
@@ -666,6 +671,11 @@ html:not(.js) .blinds {
   flex: 0 0 min(330px, 80vw);
   scroll-snap-align: start;
   position: relative;
+  transition: transform 0.55s var(--ease-reveal);
+  will-change: transform;
+}
+.service-card:hover {
+  transform: translateY(-8px);
 }
 .service-card__img {
   aspect-ratio: 3 / 4;
@@ -676,10 +686,10 @@ html:not(.js) .blinds {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 1s var(--ease-reveal);
+  transition: transform 0.85s var(--ease-reveal);
 }
 .service-card:hover .service-card__img img {
-  transform: scale(1.05);
+  transform: scale(1.045);
 }
 .service-card h3 {
   font-size: 1.15rem;
@@ -1053,49 +1063,14 @@ html:not(.js) .blinds {
   }
 }
 
-/* ---------- services (menu) smooth custom cursor ---------- */
+/* ---------- services (menu) ---------- */
 .services {
   position: relative;
-}
-.svc-cursor {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 20;
-  width: 88px;
-  height: 88px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: rgba(31, 78, 74, 0.92);
-  color: var(--white);
-  font-family: var(--font-display);
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  pointer-events: none;
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(0.4);
-  transition: opacity 0.35s var(--ease-reveal);
-  will-change: transform, opacity;
-}
-.svc-cursor.is-visible {
-  opacity: 1;
-}
-.services.cursor-active,
-.services.cursor-active .services__track,
-.services.cursor-active .service-card {
-  cursor: none;
 }
 .services__track.is-dragging {
   scroll-snap-type: none;
   scroll-behavior: auto;
   user-select: none;
-}
-@media (max-width: 900px), (pointer: coarse) {
-  .svc-cursor {
-    display: none;
-  }
 }
 
 /* ---------- visit ---------- */
