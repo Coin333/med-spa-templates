@@ -44,11 +44,7 @@
   </div>
 
   <main id="main">
-    <header class="hero" id="top" aria-label="Introduction">
-      <div class="hero__wordmark-top" data-bind="name"></div>
-      <div id="heroSlides"></div>
-      <div class="hero__dots" id="heroDots" role="tablist" aria-label="Hero slides"></div>
-    </header>
+    <header class="stage" id="top" aria-label="Introduction"></header>
 
     <section class="tiles" id="treatments">
       <div class="tiles__head reveal">
@@ -57,15 +53,15 @@
       </div>
       <div class="tiles__grid">
         <a class="tile reveal" href="#menu">
-          <div class="tile__img"><img src="assets/tile-injectables.webp" alt="Injectable treatments" loading="lazy" /></div>
+          <div class="tile__img img-reveal"><img src="assets/tile-injectables.webp" alt="Injectable treatments" loading="lazy" /></div>
           <div class="tile__meta"><h3 class="tile__name">Injectables</h3><span class="stroke-link">Discover</span></div>
         </a>
         <a class="tile reveal" href="#menu">
-          <div class="tile__img"><img src="assets/tile-laser.webp" alt="Laser and light treatments" loading="lazy" /></div>
+          <div class="tile__img img-reveal"><img src="assets/tile-laser.webp" alt="Laser and light treatments" loading="lazy" /></div>
           <div class="tile__meta"><h3 class="tile__name">Laser &amp; Light</h3><span class="stroke-link">Discover</span></div>
         </a>
         <a class="tile reveal" href="#menu">
-          <div class="tile__img"><img src="assets/tile-rituals.webp" alt="Skin ritual treatments" loading="lazy" /></div>
+          <div class="tile__img img-reveal"><img src="assets/tile-rituals.webp" alt="Skin ritual treatments" loading="lazy" /></div>
           <div class="tile__meta"><h3 class="tile__name">Skin Rituals</h3><span class="stroke-link">Discover</span></div>
         </a>
       </div>
@@ -165,6 +161,7 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" integrity="sha384-O55L/6rhHr9CFvrxqv5luxOCcmVaBmETbZbJDP+Do8T0pztTACsFBD/IXCNkj7DV" crossorigin="anonymous"></script>
   <script src="js/data.js"></script>
   <script type="module" src="js/main.js"></script>
 </body>
