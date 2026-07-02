@@ -14,8 +14,8 @@ Prompt: ~/Desktop/med-spa-templates/PROMPT.md (execute fully; four templates; ga
 - BUSINESS object in js/data.js gets realistic fictional demo values (sales demos must not show {{braces}}); comment marks every field as swap-me. Placeholder reviews clearly commented as demo-only.
 - Stack: plain HTML/CSS/vanilla JS, no external animation libs; motion hand-rolled per motion-web patterns (rAF lerp smooth-feel, IntersectionObserver reveals, scroll-scrub via rAF)
 
-## In flight
-- Finish: README written, pushing to GitHub
+## DONE (2026-07-01)
+All four templates gated and pushed: https://github.com/Coin333/med-spa-templates
 
 ## Template 4 (Drop): GATE PASSED (2026-07-01)
 - Demo business "Studio Lumen" (West Hollywood); 11 WebP images (12-115KB), high-key bone/lilac art direction
