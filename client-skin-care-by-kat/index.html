@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skin Care by Kat | Skin Care & Facials in Arcadia, CA</title>
+  <meta name="description" content="Warm, one-on-one skin care in Arcadia, CA. Facials, waxing, body scrubs, microneedling, and lip filler by Kat. By appointment only." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Skin Care by Kat | Skin Care & Facials in Arcadia, CA" />
+  <meta property="og:description" content="Warm, one-on-one skin care in Arcadia, CA. Facials, waxing, body scrubs, microneedling, and lip filler by Kat. By appointment only." />
+  <meta property="og:image" content="assets/hero.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500&family=Zalando+Sans+Expanded:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <a class="nav__logo" href="#top" data-bind="name"></a>
+    <ul class="nav__links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#concerns">Concerns</a></li>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a class="cta cta--solid nav__book" data-bind-href="tel" href="#">Book by phone</a>
+    <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services">Services</a>
+    <a href="#concerns">Concerns</a>
+    <a href="#approach">Approach</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#visit">Visit</a>
+    <a class="cta cta--solid" data-bind-href="tel" href="#">Book by phone</a>
+  </div>
+
+  <main id="main">
+    <header class="hero" id="top">
+      <div class="hero__media" data-parallax>
+        <img src="assets/hero.webp" alt="" fetchpriority="high" data-bind-alt="hero" />
+      </div>
+      <div class="hero__scrim"></div>
+      <div class="hero__top">
+        <div class="hero__eyebrows">
+          <div class="hero__wordmark" data-bind="name"></div>
+          <span class="eyebrow">Skin care &amp; facials</span>
+          <span class="eyebrow">Waxing &amp; body</span>
+          <span class="eyebrow" data-bind="cityState"></span>
+        </div>
+        <p class="hero__tagline" data-bind="tagline"></p>
+      </div>
+      <div class="hero__bottom">
+        <h1 class="hero__title" data-bind="h1"></h1>
+        <a class="cta cta--light" data-bind-href="tel" href="#">Book an appointment</a>
+      </div>
+      <div class="hero__curtain" id="curtain"></div>
+    </header>
+
+    <section class="statement">
+      <div class="statement__inner reveal">
+        <span class="eyebrow">The studio</span>
+        <p class="statement__text" data-bind="about"></p>
+        <a class="cta" data-bind-href="tel" href="#">Book a consult</a>
+      </div>
+    </section>
+
+    <section class="services" id="services" aria-label="Services">
+      <div class="services__head reveal">
+        <h2 class="services__title">Treatments,<br />quietly done well</h2>
+        <div class="services__nav">
+          <button class="arrow-btn" id="svcPrev" aria-label="Previous services">&larr;</button>
+          <button class="arrow-btn" id="svcNext" aria-label="Next services">&rarr;</button>
+        </div>
+      </div>
+      <div class="services__track reveal" id="svcTrack"></div>
+    </section>
+
+    <section class="concerns" id="concerns">
+      <div class="concerns__media">
+        <img src="assets/ambience-room.webp" alt="Treatment room interior" loading="lazy" data-parallax />
+      </div>
+      <div class="concerns__list reveal">
+        <span class="eyebrow">What brings you in</span>
+        <ol id="concernsList"></ol>
+        <a class="cta concerns__more" href="#services">See every treatment</a>
+      </div>
+    </section>
+
+    <section class="brand" id="about">
+      <img class="brand__float brand__float--1" src="assets/ambience-detail.webp" alt="" loading="lazy" />
+      <img class="brand__float brand__float--2" src="assets/texture.webp" alt="" loading="lazy" />
+      <img class="brand__float brand__float--3" src="assets/service-hydrafacial.webp" alt="" loading="lazy" />
+      <div class="brand__inner reveal">
+        <span class="eyebrow">Her promise</span>
+        <h2 class="brand__title">You, glowing and comfortable</h2>
+        <p class="brand__text">No trends, no rushing you through. Just Kat, reading your skin, explaining as she goes, and building a treatment around what you actually need.</p>
+        <a class="cta" data-bind-href="tel" href="#">Book with Kat</a>
+      </div>
+    </section>
+
+    <section class="approach" id="approach" aria-label="Our approach">
+      <span class="eyebrow">How we work</span>
+      <div id="approachSlides"></div>
+      <div class="approach__arrows">
+        <button class="arrow-btn" id="appPrev" aria-label="Previous slide">&larr;</button>
+        <button class="arrow-btn" id="appNext" aria-label="Next slide">&rarr;</button>
+      </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+      <div class="reviews__head reveal">
+        <span class="eyebrow">In their words</span>
+      </div>
+      <div class="reviews__grid" id="reviewsGrid"></div>
+    </section>
+
+    <section class="visit" id="visit">
+      <div class="visit__info reveal">
+        <h2 class="visit__title">Hours &amp; location</h2>
+        <p class="visit__address">
+          <span data-bind="address"></span><br />
+          <a data-bind-href="tel" data-bind="phone" href="#"></a>
+        </p>
+        <table class="visit__hours" id="hoursTable"></table>
+      </div>
+      <div class="visit__map" role="img" aria-label="Stylized map placeholder">
+        <div class="visit__pin">
+          <div class="visit__pin-dot"></div>
+          <span data-bind="name"></span>
+          <small data-bind="mapNote"></small>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="book">
+    <div class="footer__contact">
+      <div class="footer__book">
+        <span class="eyebrow">Ready when you are</span>
+        <h2 class="footer__book-title">Book your visit<br />in <span data-bind="city"></span></h2>
+        <p class="footer__book-note">Call or text Kat directly, or send a note below and she'll get back to you to set up your appointment.</p>
+        <a class="footer__phone" data-bind-href="tel" data-bind="phone" href="#"></a>
+      </div>
+      <form class="footer__form" id="bookingForm" novalidate>
+        <div class="footer__field">
+          <label for="bf-name">Full name</label>
+          <input id="bf-name" name="name" type="text" autocomplete="name" required placeholder="Jane Doe" />
+        </div>
+        <div class="footer__field-row">
+          <div class="footer__field">
+            <label for="bf-email">Email</label>
+            <input id="bf-email" name="email" type="email" autocomplete="email" required placeholder="jane@email.com" />
+          </div>
+          <div class="footer__field">
+            <label for="bf-phone">Phone</label>
+            <input id="bf-phone" name="phone" type="tel" autocomplete="tel" placeholder="(626) 555-0148" />
+          </div>
+        </div>
+        <div class="footer__field">
+          <label for="bf-service">Service of interest</label>
+          <select id="bf-service" name="service" required>
+            <option value="" disabled selected>Select a treatment</option>
+          </select>
+        </div>
+        <div class="footer__field">
+          <label for="bf-message">Anything we should know?</label>
+          <textarea id="bf-message" name="message" rows="3" placeholder="Preferred days, questions, goals"></textarea>
+        </div>
+        <button type="submit" class="cta cta--light footer__submit">Request appointment</button>
+        <p class="footer__form-status" id="bookingStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="nav__logo" data-bind="name"></div>
+        <p data-bind="tagline"></p>
+      </div>
+      <div class="footer__col">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h3>Visit</h3>
+        <ul>
+          <li><a href="#visit" data-bind="address"></a></li>
+          <li><a data-bind-href="tel" data-bind="phone" href="#"></a></li>
+          <li><a data-bind-href="email" data-bind="email" href="#"></a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h3>Follow</h3>
+        <ul>
+          <li><a href="#" data-bind="instagram" rel="noopener"></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__legal">
+      <span><span data-bind="year"></span> <span data-bind="name"></span>. All rights reserved.</span>
+      <span>Results vary by individual. By appointment only.</span>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
